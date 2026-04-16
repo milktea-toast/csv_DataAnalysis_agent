@@ -18,6 +18,7 @@ def dataframe_agent(api_key, df, query):
         agent_type="zero-shot-react-description",
         agent_executor_kwargs={"handle_parsing_errors": True},# 智能体输出格式乱了、少了 Action、格式不对时，不崩溃、不报错、自动跳过错误，直接返回答案
         verbose=True,# 打印完整思考过程
+                allow_dangerous_code=True  # 👈 加上这一行
     )
 
     try: # 小心尝试
